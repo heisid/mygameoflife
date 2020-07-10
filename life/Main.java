@@ -27,10 +27,10 @@ public class Main {
 
         boolean[][] currentState = universe.getState();
         
-        clearScreen(1);
+        refresh(1000);
 
         for (int i = 1; i < numberOfGenerations; i++) {
-            clearScreen(1);
+            refresh(500);
             Generator generator = new Generator(currentState);
             generator.generateNext();
             currentState = generator.getOutputState();
@@ -41,9 +41,9 @@ public class Main {
         }
     }
 
-    private static void clearScreen(long delay) {
+    private static void refresh(long delay) {
         try {
-            TimeUnit.SECONDS.sleep(delay);
+            TimeUnit.MILLISECONDS.sleep(delay);
             if (System.getProperty("os.name").contains("Windows")) {
                 new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
             } else {

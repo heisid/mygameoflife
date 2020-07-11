@@ -15,7 +15,6 @@ public class Main {
         System.out.print("Input Number of Generation: ");
         int numberOfGenerations = scr.nextInt();
         scr.close();
-        MyGameOfLife mgolWindow;
 
         Universe universe = new Universe(size);
 
@@ -28,7 +27,7 @@ public class Main {
         }
 
         boolean[][] currentState = universe.getState();
-        mgolWindow = new MyGameOfLife();
+        MyGameOfLife mgolWindow = new MyGameOfLife();
         mgolWindow.draw(currentState);
         
         refresh(1000);

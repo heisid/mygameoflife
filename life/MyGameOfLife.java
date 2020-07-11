@@ -2,6 +2,7 @@ package life;
 
 import javax.swing.*;
 
+@SuppressWarnings("serial")
 public class MyGameOfLife extends JFrame {
     private final JLabel GenerationLabel;
     private final JLabel AliveLabel;
@@ -16,13 +17,11 @@ public class MyGameOfLife extends JFrame {
         setLayout(null);
 
         GenerationLabel = new JLabel();
-        GenerationLabel.setName("GenerationLabel");
         GenerationLabel.setText("Generation #0");
         GenerationLabel.setBounds(20, 10, 200, 30);
         add(GenerationLabel);
 
         AliveLabel = new JLabel();
-        AliveLabel.setName("AliveLabel");
         AliveLabel.setText("Alive: 0");
         AliveLabel.setBounds(20, 40, 200, 30);
         add(AliveLabel);

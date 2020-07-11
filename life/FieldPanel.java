@@ -3,6 +3,7 @@ package life;
 import javax.swing.*;
 import java.awt.*;
 
+@SuppressWarnings("serial")
 public class FieldPanel extends JPanel {
     int gridSize;
     boolean[][] state;

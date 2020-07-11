@@ -51,9 +51,11 @@ public class Main {
     private static void refresh(long delay) {
         try {
             TimeUnit.MILLISECONDS.sleep(delay);
+            // Windows
             if (System.getProperty("os.name").contains("Windows")) {
                 new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
             } else {
+                // Linux
                 System.out.print("\033[H\033[2J");
                 // Doesn't work
                 // Runtime.getRuntime().exec("clear");

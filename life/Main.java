@@ -14,6 +14,8 @@ public class Main {
         long seed = scr.nextLong();
         System.out.print("Input Number of Generation: ");
         int numberOfGenerations = scr.nextInt();
+        scr.close();
+        MyGameOfLife mgolWindow;
 
         Universe universe = new Universe(size);
 
@@ -26,6 +28,8 @@ public class Main {
         }
 
         boolean[][] currentState = universe.getState();
+        mgolWindow = new MyGameOfLife();
+        mgolWindow.draw(currentState);
         
         refresh(1000);
 
@@ -38,6 +42,10 @@ public class Main {
             System.out.println("Generation #" + i);
             System.out.println("Alive #" + universe.countAlive());
             universe.draw();
+            
+            mgolWindow.setGenerationLabel(i);
+            mgolWindow.setAliveLabel(universe.countAlive());
+            mgolWindow.draw(currentState);
         }
     }
 

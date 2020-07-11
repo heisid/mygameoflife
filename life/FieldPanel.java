@@ -10,7 +10,7 @@ public class FieldPanel extends JPanel {
 
     public FieldPanel(boolean[][] state) {
         super();
-        setBounds(20, 80, 400, 400);
+        //setBounds(20, 80, 400, 400);
         this.state = Util.cloneMatrix(state);
         this.gridSize = state[0].length;
     }

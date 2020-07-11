@@ -1,6 +1,7 @@
 package life;
 
 import javax.swing.*;
+import java.awt.*;
 
 @SuppressWarnings("serial")
 public class MyGameOfLife extends JFrame {
@@ -13,21 +14,56 @@ public class MyGameOfLife extends JFrame {
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(480, 540);
+        setMinimumSize(new Dimension(480, 540));
         setTitle("Game Of Life");
-        setLayout(null);
+        setLayout(new BorderLayout(5,5));
 
         GenerationLabel = new JLabel();
         GenerationLabel.setText("Generation #0");
-        GenerationLabel.setBounds(20, 10, 200, 30);
-        add(GenerationLabel);
+        //GenerationLabel.setBounds(20, 10, 200, 30);
+        //add(GenerationLabel);
 
         AliveLabel = new JLabel();
         AliveLabel.setText("Alive: 0");
-        AliveLabel.setBounds(20, 40, 200, 30);
-        add(AliveLabel);
+        //AliveLabel.setBounds(20, 40, 200, 30);
+        //add(AliveLabel);
+
+        JPanel statusPanel = new JPanel();
+        statusPanel.setLayout(new GridLayout(1,2,2,2));
+        statusPanel.add(GenerationLabel);
+        statusPanel.add(AliveLabel);
+
+        JLabel sizeTextLabel = new JLabel("Size");
+        JTextField textSize = new JTextField();
+
+        JLabel generationTextLabel = new JLabel("Generation");
+        JTextField textGeneration = new JTextField();
+
+        JLabel seedTextLabel = new JLabel("Seed");
+        JTextField textSeed = new JTextField();
+
+        JButton buttonStart = new JButton();
+        buttonStart.setText("Start");
+
+        JButton buttonPause = new JButton();
+        buttonPause.setText("Pause");
+
+        JPanel controlPanel = new JPanel();
+        controlPanel.add(buttonStart);
+        controlPanel.add(buttonPause);
+        controlPanel.add(generationTextLabel);
+        controlPanel.add(textGeneration);
+        controlPanel.add(seedTextLabel);
+        controlPanel.add(textSeed);
+        controlPanel.add(sizeTextLabel);
+        controlPanel.add(textSize);
+        controlPanel.setLayout(new GridLayout(4,2,5,5));
 
         fieldPanel = new FieldPanel(state);
-        add(fieldPanel);
+
+        add(controlPanel, BorderLayout.NORTH);
+        add(fieldPanel, BorderLayout.CENTER);
+        add(statusPanel, BorderLayout.SOUTH);
 
         setVisible(true);
     }
